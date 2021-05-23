@@ -55,7 +55,7 @@ public class TasksTest {
 		
 		//Validar mensagem e sucesso
 		String message = driver.findElement(By.id("message")).getText();
-		Assert.assertEquals("Sucess!", message);
+		Assert.assertEquals("Success!", message);
 		
 		}
 		finally {
