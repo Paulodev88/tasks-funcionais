@@ -8,10 +8,10 @@ import java.util.concurrent.TimeUnit;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.ImmutableCapabilities;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
+
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 
@@ -19,15 +19,12 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 public class TasksTest {
 
 	public WebDriver acessarAplicação() throws MalformedURLException{
-		
-		System.setProperty("JAEGER_SERVICE_NAME", "selenium-java-client");
-		System.setProperty("JAEGER_AGENT_HOST","localhost");
-		System.setProperty("JAEGER_AGENT_PORT","4444");
+	
 
-		ImmutableCapabilities cap = new ImmutableCapabilities("browserName", "chrome");
-		//ChromeOptions cap = new ChromeOptions();
+		
+		ChromeOptions cap = new ChromeOptions();
 		WebDriver driver = new RemoteWebDriver(new URL("http://172.21.0.1:4444/wd/hub"), cap);
-		driver.navigate().to("http://localhost:8001/tasks");		
+		driver.navigate().to("http://172.21.0.1:8001/tasks");		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);		
 		return driver;
 	}
